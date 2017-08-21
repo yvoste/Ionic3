@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <ion-title>Learn with Devdactic</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-segment [(ngModel)]="learnType" class="segments">
+    <ion-segment-button value="courses">
+      Courses
+    </ion-segment-button>
+    <ion-segment-button value="videos">
+    Videos
+    </ion-segment-button>
+    <ion-segment-button value="vidos">
+    Iframe
+    </ion-segment-button>
+  </ion-segment>
+  <div [ngSwitch]="learnType">
+    <ion-list *ngSwitchCase="'courses'">
+      <ion-card class="course-card">
+        <ion-card-content>
+          <img src="assets/img/course-ionic2.png" (click)="openUrl(course2Url)" />
+          <ion-card-title>
+            Ionic 2 in One Hour
+          </ion-card-title>
+          <p>
+            Get started with Ionic 2 and build your own app today
+          </p>
+        </ion-card-content>
+        <button ion-button clear small (click)="openUrl(course2Url)">
+          <div>Get started</div>
+        </button>
+      </ion-card>
+      <ion-card class="course-card">
+        <ion-card-content>
+          <img src="assets/img/course-ionic1.png" (click)="openUrl(course1Url)" />
+          <ion-card-title>
+            Ionic by Doing: Create Mobile Apps with HTML5 and Javascript
+          </ion-card-title>
+          <p>
+            Immersive videos taking you step-by-step through the process of building 3
+            different applications with the Ionic Framework using HTML, Javascript and CSS.
+          </p>
+        </ion-card-content>
+        <button ion-button clear small (click)="openUrl(course1Url)">
+          <div>Learn Ionic 1</div>
+        </button>
+      </ion-card>
+    </ion-list>
+    <ion-list *ngSwitchCase="'videos'">
+      <ion-item *ngFor="let vid of videos" class="video-item">
+        <ion-thumbnail item-left>
+          <img src="{{vid.thumbnail}}">
+        </ion-thumbnail>
+        <h2>{{vid.title}}</h2>
+        <p>{{vid.date | date:"MM/dd/yy"}}</p>
+        <!--<button ion-button clear item-right (click)="goToFrame(vid.id)">Watch</button>-->
+        <button ion-button clear item-right (click)="playVideo(vid.id)">Watch</button>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'vidos'">
+      <ion-card class="course-card">
+        <ion-card-content>
+          <img src="assets/img/d9.PNG" />
+          <ion-card-title>
+            Open Video in a new window
+          </ion-card-title>
+          <p>
+          This feature open a browser in the current application to play video
+          </p>
+        </ion-card-content>
+        <button ion-button clear small (click)="openUrl(vidos)">
+          <div>Play</div>
+        </button>
+      </ion-card>
+    </ion-list>
+</div>
+<!--<iframe width="100%" height="315" [src]="videoUrl" frameborder="0" allowfullscreen></iframe>-->
+</ion-content>

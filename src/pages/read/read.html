@@ -1,0 +1,38 @@
+<!--
+  Generated template for the Read page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header>
+  <ion-navbar>
+    <ion-title>What's new on Devdactic</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-item>
+    <ion-input name="text" [(ngModel)]="myVar.text"></ion-input>
+  </ion-item>
+  <h2 >Hello {{myVar.newtext}} !</h2>
+  <button ion-button full (click)="changeText()">Change the Text!</button>
+  <ion-item>
+    <ion-input disabled="disabled" name="text" [ngModel]="myVar.newtext"></ion-input>
+  </ion-item>
+  <button ion-button full (click)="loadText()">Load text from Service</button>
+
+</ion-content>-->
+<ion-menu [content]="content">
+  <ion-toolbar color="primary">
+    <ion-title>Categories</ion-title>
+  </ion-toolbar>
+  <ion-content class="content">
+    <ion-list>
+      <ion-item *ngFor="let p of categories" menuClose (click)="reloadFeed(p.key)"
+      class="category-item">
+      {{p.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

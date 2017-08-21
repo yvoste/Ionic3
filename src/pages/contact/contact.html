@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Contact Vo</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form (ngSubmit)="submitForm()" #inquiryForm="ngForm">
+    <ion-list>
+      <ion-item class="form-item">
+        <ion-label stacked>Name</ion-label>
+        <ion-input type="text" name="name" [(ngModel)]="formInquiry.name" required></ion-input>
+      </ion-item>
+      <ion-item class="form-item">
+        <ion-label stacked>Website</ion-label>
+        <ion-input type="text" name="website" [(ngModel)]="formInquiry.website"></ion-input>-->
+      </ion-item>
+      <ion-item class="form-item">
+        <ion-label>Please select Subject</ion-label>
+        <ion-select name="subject" [(ngModel)]="formInquiry.subject" required>
+          <ion-option *ngFor="let r of reasons" [value]="r">{{r}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="form-item">
+        <ion-label stacked>Your message</ion-label>
+        <ion-textarea rows="8" name="message" [(ngModel)]="formInquiry.message" required></ion-textarea>
+      </ion-item>
+      <button ion-button full type="submit" color="balanced" [disabled]="!inquiryForm.form.valid">Generate Email</button>
+    </ion-list>
+  </form>
+</ion-content>

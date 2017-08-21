@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>What's new on Devdactic</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="content">
+  <ion-spinner *ngIf="loading"></ion-spinner>
+  <ion-list *ngIf="!loading">
+    <ion-item *ngFor="let item of articles" (click)="openArticle(item.link)" class="feed-item">
+      <h2>{{item.title}}</h2>
+      <p [innerHtml]="item.description"></p>
+    </ion-item>
+  </ion-list>
+</ion-content>

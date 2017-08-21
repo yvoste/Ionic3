@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Code to Success</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="content">
+  <ion-slides pager="true" #mySlider>
+    <ion-slide>
+      <h1>Hi I'm Simon!</h1><br><br>
+      <ion-row>
+        <ion-col>
+          <img src="assets/img/d9.png" style="height: 180px;"/>
+        </ion-col>
+        <ion-col>
+          <br>And I will help you to build better mobile apps.<br><br>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="category-col">
+          <b>read</b><br>my newest content<br>
+        </ion-col>
+        <ion-col class="category-col">
+          <b>learn</b><br>about my courses and videos<br>
+        </ion-col>
+        <ion-col class="category-col">
+          <b>contact</b><br>me for consulting and help
+        </ion-col>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col>
+          <em>Slide to the next page to find out more about Devdactic..</em>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row>
+      <button ion-button (click)="nextPage()">Learn more!</button>
+    </ion-slide>
+    <ion-slide>
+      You want to know more about Devdactic? Check out the video below!<br><br>
+      <ion-card>
+        <ion-card-header>
+          <b>{{video.title}}</b>
+        </ion-card-header>
+        <ion-card-content>
+          <img src="{{video.thumbnail}}" (click)="playVideo(video.id)" tappable>
+        </ion-card-content>
+      </ion-card>
+      <ion-row>
+        <ion-col width-10></ion-col>
+        <ion-col>
+          <button ion-button (click)="closeIntro()">Close Intro</button>
+        </ion-col>
+        <ion-col width-10></ion-col>
+      </ion-row>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
